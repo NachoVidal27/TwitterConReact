@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
+/* Colocar aquí CSS "propio". */
+/* Navbar */
+#navbar {
+  height: 65%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+small {
+  color: black;
+  font-weight: 400;
+  opacity: 60%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h5 {
+  color: black;
+  font-weight: 400;
+  opacity: 60%;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btnFollow {
+  height: 2rem;
+  width: 6rem;
+  background-color: #1d9bf0;
   color: white;
+  border-radius: 20%;
+}
+#contenedor-login {
+  width: 100%;
+  padding: 3rem;
+}
+#login-btn {
+  width: 100%;
+  background-color: #1d9bf0;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+#contenedor-general-login,
+#contenedor-general-register {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.contenedor {
+  height: 80vh;
+  width: 70vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+#parte-azul {
+  background-color: #1d9bf0;
+}
+
+#bodyBackgroundColor {
+  background-color: #074874;
+}
+
+#log-out {
+  background-color: #dc3545;
+}
+#logo-twitter {
+  width: 4rem;
+  height: 4rem;
+  filter: invert();
+}
+#texto-azul {
+  font-size: 2rem;
+}
+#contenedor-register {
+  padding: 2rem;
+}
+
+.logosHome {
+  height: 2rem;
+  width: 2rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1.8rem;
+  display: block;
+}
+
+/* //Tweet */
+.name {
+  display: inline-block;
+  font-weight: 650;
+  font-size: 1.2rem;
+}
+
+.username {
+  color: black;
+  font-weight: 400;
+  opacity: 60%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#content {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+/* //Likes */
+.h_container {
+  border: 0;
+  background-color: white;
+  border-radius: 20px;
+  display: inline;
+  text-decoration: none;
+}
+.heart {
+  font-size: 15px;
+  color: red;
+}
+#heart:hover {
+  background-color: red;
+}
+
+#tweet {
+  border: none;
+}
+
+#tweet-btn {
+  height: 2.5rem;
+  width: 5rem;
+  background-color: #1d9bf0;
+  text-decoration: none;
+  border: none;
+}
+
+#profile-items-alignment {
+  height: 120px;
+}
+
+#follow-button-alignmet {
+  display: inline-block;
+}
+
+#follow-button {
+  height: 2.5rem;
+  width: 5rem;
+  background-color: #1d9bf0;
+  text-decoration: none;
+  border: none;
+}
+
+#unfollow-btn {
+  height: 2.5rem;
+  width: 5rem;
+  background-color: rgb(225, 225, 225);
+  text-decoration: none;
+  color: black;
+  border: black;
+}
+
+.profile-img {
+  border-radius: 100%;
+  width: 2.3rem;
+  margin: 5px;
+}
+
+#userImg {
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 0.45rem;
+}
+#navbar {
+  height: 100vh;
+}
+
+#sideBarImg {
+  height: 2rem;
+  width: 2rem;
+}
+
+#imgOnUserProfile {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 6px solid white;
+  position: relative;
+  top: -5rem;
+  left: 1rem;
+}
+
+.portada {
+  background-color: #1d9bf0;
+  height: 10rem;
+  width: 100%;
+}
+
+.label {
+  font-weight: bold;
+  line-height: 40px;
+  opacity: 100%;
+}
+
+.underlined {
+  border-bottom: 5px solid #1d9bf0;
+}
+
+#goBack {
+  width: 2rem;
+  height: 1.8rem;
+}
+
+.marginUsername {
+  margin-left: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  #contenedor-login {
+    width: 100%;
+    padding: 0;
+    border-radius: 10px;
   }
 }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("../partials/meta") %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-2 col-md-2 col-sm-2 position-fixed">
+          <%- include("../partials/navbarProfile") %>
+        </div>
+
+        <div class="col-10 col-md-10 col-lg-6 offset-2">
+          <div class="portada"></div>
+          <div id="profile-items-alignment" class="d-flex justify-content-between">
+            <img src=" <%= user.profileImg %>" id="imgOnUserProfile" alt="" />
+            <div id="follow-button-alignmet">
+              <% if ( user.followers.find((id) => id.toString() === logedUser._id.toString())) {%>
+              <form action="<%= user._id %>/follow" method="post">
+                <button type="submit" class="rounded-pill mb-3 mt-2 me-2" id="unfollow-btn">
+                  Unfollow
+                </button>
+              </form>
+              <%} else {%>
+              <form action="<%= user._id %>/follow" method="post">
+                <button
+                  type="submit"
+                  class="text-light rounded-pill mb-3 mt-2 me-2"
+                  id="follow-button"
+                >
+                  Follow
+                </button>
+              </form>
+              <%} %>
+            </div>
+          </div>
+          <h2><%= user.firstname%> <%= user.lastname%></h2>
+          <h5>@<%= user.username%></h5>
+          <p><%= user.bio %></p>
+          <div class="d-flex justify-content-end column-gap-3">
+            <h5>
+              <span class="fw-bold opacity-100"><%= user.following.length %></span>
+              <a href="/user/<%= user._id %>/following" class="text-decoration-none text-dark"
+                >Following</a
+              >
+            </h5>
+            <br />
+            <h5>
+              <span class="fw-bold opacity-100"><%= user.followers.length %></span>
+              <a href="/user/<%= user._id %>/followers" class="text-decoration-none text-dark"
+                >Followers</a
+              >
+            </h5>
+          </div>
+          <div>
+            <h5 class="ms-2 mt-4" id="tweets-label">Tweets</h5>
+          </div>
+
+          <div>
+            <% for(const tweet of user.tweets) {%>
+            <div class="d-flex border border-light p-2">
+              <div>
+                <img src="<%= user.profileImg%>" class="profile-img" alt="user profile pic" />
+              </div>
+              <div class="ms-2">
+                <div class="name"><%= user.firstname%> <%= user.lastname%></div>
+
+                <div class="username">@<%= user.username%> <%= tweet.createdAt%></div>
+
+                <p id="content"><%= tweet.content %></p>
+                <div class="d-flex justify-content-between">
+                  <form action="/user/<%= user._id %>/<%= tweet._id %>/like" method="post">
+                    <button type="submit" class="h_container">
+                      <i id="heart" class="far fa-heart heart"></i>
+                    </button>
+                    <span class="heart"><%= tweet.likes.length %></span>
+                  </form>
+                  <% if (logedUser.username === user.username) {%>
+                  <form action="/tweet/<%= tweet._id %>?_method=DELETE" method="post">
+                    <button type="submit" class="h_container">
+                      <i class="fa fa-trash-o heart"></i>
+                    </button>
+                  </form>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <% }%>
+          </div>
+        </div>
+        <div class="col-4 d-none d-lg-block"><%- include("../partials/rightBar") %></div>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/3929e16ef5.js" crossorigin="anonymous"></script>
+    <script src="{% static 'network/functions.js' %}"></script>
+  </body>
+</html>

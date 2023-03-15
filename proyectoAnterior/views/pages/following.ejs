@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/meta" )%>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-2 col-md-2 col-sm-2 position-fixed"><%- include("../partials/navbar") %></div>
+      <div class="col-10 col-md-10 col-lg-6 offset-2">
+        <a href="/user/<%=user._id%>"
+          ><img src="/img/keyboard_backspace_FILL0_wght400_GRAD0_opsz48.svg" id="goBack" alt=""
+        /></a>
+        <h4 class="d-inline-block"><%= user.firstname %> <%= user.lastname %></h4>
+        <h5 class="d-block marginUsername">@<%= user.username %></h5>
+
+        <div class="mx-auto">
+          <div class="row">
+            <div class="col text-center"><h5 class="label">Followers</h5></div>
+            <div class="col text-center"><h5 class="underlined label">Following</h5></div>
+          </div>
+        </div>
+        <% for(const following of user.following){ %>
+        <div class="mb-4">
+          <div class="row">
+            <div class="col-1">
+              <img src="<%= following.profileImg%>" class="profile-img" id="sideBarImg" alt="" />
+            </div>
+            <div class="col-7 px-3">
+              <h4 class="mb-0"><%=following.firstname%> <%= following.lastname%></h4>
+              <h5>@<%= following.username%></h5>
+            </div>
+            <div class="col-4 text-end">
+              <button class="text-light rounded-pill mb-3" id="tweet-btn">Follow</button>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <div class="col-4 d-none d-lg-block"><%- include("../partials/rightBar") %></div>
+    </div>
+    <script src="https://kit.fontawesome.com/3929e16ef5.js" crossorigin="anonymous"></script>
+    <script src="{% static 'network/functions.js' %}"></script>
+  </body>
+</html>

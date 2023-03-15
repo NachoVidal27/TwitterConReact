@@ -1,0 +1,131 @@
+import React from "react";
+
+function SignUp() {
+  return (
+    <div>
+      <body>
+        <div id="bodyBackgroundColor">
+          <div class="container">
+            <div class="contenedor">
+              <div class="row w-100 h-100 g-0" id="contenedor-general-register">
+                <div
+                  class="col-lg-7 col-md-5 d-none d-md-block  p-5"
+                  id="parte-azul"
+                >
+                  <div class="position-relative h-100">
+                    <p
+                      class="text-light position-absolute bottom-0 start-0 fw-bold"
+                      id="texto-azul"
+                    >
+                      Hi! Welcome to Twitter Clone 👋
+                    </p>
+
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/1384/1384033.png"
+                      class="position-absolute top-0 start-0"
+                      alt=""
+                      id="logo-twitter"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-7 col-sm-12 bg-light  d-flex flex-column align-items-center justify-content-center">
+                  <div class="text-start" id="contenedor-register">
+                    <h3 class="fw-bold">Sign Up</h3>
+                    <p>Create and account and start using Twitter</p>
+                    <form action="/user/register" method="post">
+                      <div class="mb-2">
+                        <label for="firstname" class="form-label"></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="firstname"
+                          name="firstname"
+                          placeholder="First name"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label for="lastname" class="form-label"></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="lastname"
+                          name="lastname"
+                          placeholder="Last name"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label
+                          for="exampleInputEmail1"
+                          class="form-label"
+                        ></label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          name="email"
+                          placeholder="Email"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label for="username" class="form-label"></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          name="username"
+                          placeholder="Username"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label for="image" class="form-label"></label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="image"
+                          name="image"
+                          placeholder="image"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label for="password" class="form-label"></label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          placeholder="Password"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        class="btn text-light rounded-pill mt-2"
+                        id="login-btn"
+                      >
+                        Sign Up
+                      </button>
+                    </form>
+                    <p class="text-center mt-5">
+                      Alredy have account?{" "}
+                      <a href="/" class="text-decoration-none">
+                        {" "}
+                        Sign in
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"
+          ></script>
+        </div>
+      </body>
+    </div>
+  );
+}
+
+export default SignUp;
