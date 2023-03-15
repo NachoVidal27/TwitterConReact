@@ -1,23 +1,14 @@
-import Login from "../components/Login";
+import React from "react";
 import SignUp from "../components/SignUp";
-// import SignUp from "../components/SignUp";
-
-
-const [pressed, setPressed] = useState(false);
-function press() {
-if (pressed == false) {setPressed(true)} else {setPressed(false)}}
-
-const component = pressed ? <SignUp onClick(press)/> : <Login onClick(press)/>;
-
-
-
+import Login from "../components/Login";
+import { useState } from "react";
 
 function Landing() {
-  return (
-    <div>
-      <Login />
-      <SignUp />
-    </div>
+  const [isLogin, setIsLogin] = useState(true);
+  return isLogin ? (
+    <Login setIsLogin={setIsLogin} />
+  ) : (
+    <SignUp setIsLogin={setIsLogin} />
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -9,20 +10,20 @@ function Navbar() {
       >
         <div>
           <img src="/img/logopajarito.svg" class="logosHome" alt="" />
-          <a href="/home">
+          <Link to="/tweets">
             <img src="/img/twtHome.svg" class="logosHome" alt="" />
-          </a>
-          <a href="/user/<%= user._id %>">
-            <img src="/img/twtUser.svg" class="logosHome" alt="" />
-          </a>
-          <a href="/home">
+          </Link>
+          <Link to="/profile/">
+            <img src="/img/twtUser.svg" clLinkss="logosHome" alt="" />
+          </Link>
+          <Link to="/tweets">
             <img src="/img/writeTwt.svg" class="logosHome" alt="" />
-          </a>
+          </Link>
         </div>
 
-        <a href="/auth/logout">
+        <Link to="/auth/logout">
           <img src="/img/logout.svg" class="logosHome" id="logout" alt="" />
-        </a>
+        </Link>
       </div>
       ;
     </div>

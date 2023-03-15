@@ -1,20 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function SignUp() {
+function SignUp({ setIsLogin }) {
   return (
     <div>
       <body>
         <div id="bodyBackgroundColor">
-          <div class="container">
-            <div class="contenedor">
-              <div class="row w-100 h-100 g-0" id="contenedor-general-register">
+          <div className="container">
+            <div className="contenedor">
+              <div
+                className="row w-100 h-100 g-0"
+                id="contenedor-general-register"
+              >
                 <div
-                  class="col-lg-7 col-md-5 d-none d-md-block  p-5"
+                  className="col-lg-7 col-md-5 d-none d-md-block  p-5"
                   id="parte-azul"
                 >
-                  <div class="position-relative h-100">
+                  <div className="position-relative h-100">
                     <p
-                      class="text-light position-absolute bottom-0 start-0 fw-bold"
+                      className="text-light position-absolute bottom-0 start-0 fw-bold"
                       id="texto-azul"
                     >
                       Hi! Welcome to Twitter Clone 👋
@@ -22,75 +26,75 @@ function SignUp() {
 
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/1384/1384033.png"
-                      class="position-absolute top-0 start-0"
+                      className="position-absolute top-0 start-0"
                       alt=""
                       id="logo-twitter"
                     />
                   </div>
                 </div>
-                <div class="col-lg-5 col-md-7 col-sm-12 bg-light  d-flex flex-column align-items-center justify-content-center">
-                  <div class="text-start" id="contenedor-register">
-                    <h3 class="fw-bold">Sign Up</h3>
+                <div className="col-lg-5 col-md-7 col-sm-12 bg-light  d-flex flex-column align-items-center justify-content-center">
+                  <div className="text-start" id="contenedor-register">
+                    <h3 className="fw-bold">Sign Up</h3>
                     <p>Create and account and start using Twitter</p>
                     <form action="/user/register" method="post">
-                      <div class="mb-2">
-                        <label for="firstname" class="form-label"></label>
+                      <div className="mb-2">
+                        <label for="firstname" className="form-label"></label>
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="firstname"
                           name="firstname"
                           placeholder="First name"
                         />
                       </div>
-                      <div class="mb-2">
-                        <label for="lastname" class="form-label"></label>
+                      <div className="mb-2">
+                        <label for="lastname" className="form-label"></label>
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="lastname"
                           name="lastname"
                           placeholder="Last name"
                         />
                       </div>
-                      <div class="mb-2">
+                      <div className="mb-2">
                         <label
                           for="exampleInputEmail1"
-                          class="form-label"
+                          className="form-label"
                         ></label>
                         <input
                           type="email"
-                          class="form-control"
+                          className="form-control"
                           id="exampleInputEmail1"
                           name="email"
                           placeholder="Email"
                         />
                       </div>
-                      <div class="mb-2">
-                        <label for="username" class="form-label"></label>
+                      <div className="mb-2">
+                        <label for="username" className="form-label"></label>
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="username"
                           name="username"
                           placeholder="Username"
                         />
                       </div>
-                      <div class="mb-2">
-                        <label for="image" class="form-label"></label>
+                      <div className="mb-2">
+                        <label for="image" className="form-label"></label>
                         <input
                           type="file"
-                          class="form-control"
+                          className="form-control"
                           id="image"
                           name="image"
                           placeholder="image"
                         />
                       </div>
-                      <div class="mb-2">
-                        <label for="password" class="form-label"></label>
+                      <div className="mb-2">
+                        <label for="password" className="form-label"></label>
                         <input
                           type="password"
-                          class="form-control"
+                          className="form-control"
                           id="password"
                           name="password"
                           placeholder="Password"
@@ -99,18 +103,20 @@ function SignUp() {
 
                       <button
                         type="submit"
-                        class="btn text-light rounded-pill mt-2"
+                        className="btn text-light rounded-pill mt-2"
                         id="login-btn"
                       >
                         Sign Up
                       </button>
                     </form>
-                    <p class="text-center mt-5">
+                    <p className="text-center mt-5">
                       Alredy have account?{" "}
-                      <a href="/" class="text-decoration-none">
-                        {" "}
-                        Sign in
-                      </a>{" "}
+                      <span
+                        onClick={() => setIsLogin(true)}
+                        className="text-primary ms-2"
+                      >
+                        Login
+                      </span>
                     </p>
                   </div>
                 </div>
