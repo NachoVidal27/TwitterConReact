@@ -6,23 +6,23 @@ function Navbar() {
     <div>
       <div
         id="navbar"
-        class="d-flex flex-column justify-content-between position-fixed"
+        className="d-flex flex-column justify-content-between position-fixed"
       >
         <div>
-          <img src="/img/logopajarito.svg" class="logosHome" alt="" />
+          <img src="/img/logopajarito.svg" className="logosHome" alt="" />
           <Link to="/tweets">
-            <img src="/img/twtHome.svg" class="logosHome" alt="" />
+            <img src="/img/twtHome.svg" className="logosHome" alt="" />
           </Link>
           <Link to="/profile/">
             <img src="/img/twtUser.svg" clLinkss="logosHome" alt="" />
           </Link>
           <Link to="/tweets">
-            <img src="/img/writeTwt.svg" class="logosHome" alt="" />
+            <img src="/img/writeTwt.svg" className="logosHome" alt="" />
           </Link>
         </div>
 
         <Link to="/auth/logout">
-          <img src="/img/logout.svg" class="logosHome" id="logout" alt="" />
+          <img src="/img/logout.svg" className="logosHome" id="logout" alt="" />
         </Link>
       </div>
       ;
