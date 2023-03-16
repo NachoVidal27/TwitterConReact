@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function Tweets() {
-  const token = useState((state) => state.user.token);
-  console.log(token);
-  const [tweets, setTweets] = useState();
+  const [tweets, setTweets] = useState([]);
+  const token = useSelector((state) => state.user.token);
   useEffect(() => {
-    console.log("milanesa");
     const getTweets = async () => {
       const response = await axios({
         headers: {
