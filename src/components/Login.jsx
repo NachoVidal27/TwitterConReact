@@ -1,4 +1,22 @@
-function Login({ setIsLogin }) {
+import axios from "axios";
+import { useState } from "react"
+
+function Login({setIsLogin}) {
+const[inputEmail, setInputEmail]=useState("")
+const[inputPassword, setInputPassword]=useState("")
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const response = await axios({
+    method: "post",
+    url: "http://localhost:8000/token",
+    data: {
+      email: inputEmail,
+      password: inputPassword,
+    },
+  });
+  console.log(response);
+};
   return (
     <div>
       <body>
@@ -34,26 +52,30 @@ function Login({ setIsLogin }) {
                   <div className="" id="contenedor-login">
                     <h3 className="fw-bold">Login</h3>
                     <p>Ready to start using Twitter?</p>
-                    <form method="post" action="/auth">
+                    <form onSubmit ={handleSubmit} action="">
                       <div className="mb-2">
-                        <label for="email" className="form-label"></label>
+                        <label htmlFor="" className="form-label"></label>
                         <input
                           type="text"
                           className="form-control"
                           id="email"
                           name="email"
                           placeholder="Email"
+                          value={inputEmail}
+                          onChange={(event)=>setInputEmail(event.target.value)}
                         />
                       </div>
 
                       <div className="mb-2">
-                        <label for="password" className="form-label"></label>
+                        <label htmlFor="" className="form-label"></label>
                         <input
                           type="password"
                           className="form-control"
                           id="password"
                           name="password"
                           placeholder="Password"
+                          value={inputPassword}
+                          onChange={(event)=>setInputPassword(event.target.value)}
                         />
                       </div>
 
