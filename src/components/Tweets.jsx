@@ -4,22 +4,20 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function Tweets() {
-  const token = useSelector((state) => state.user.token);
+  const token = useState((state) => state.user.token);
   console.log(token);
   const [tweets, setTweets] = useState();
-
   useEffect(() => {
-    console.log("estamos ejecutando useEffect");
+    console.log("milanesa");
     const getTweets = async () => {
       const response = await axios({
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTA5MWUyZmQ1YTUzOGY3YWM3MTM2MCIsImlhdCI6MTY3ODk5MzM5M30.zhf74cr8VTDcWASET8x7HQLHw2f1JOKpFN2gEzcrVaw`,
+          Authorization: `Bearer ${token}`,
         },
         method: "get",
         url: "http://localhost:8000/tweets",
       });
       setTweets(response.data);
-      console.log("la response del axios es " + response);
     };
     getTweets();
   }, []);
