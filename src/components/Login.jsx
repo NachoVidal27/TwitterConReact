@@ -1,22 +1,28 @@
 import axios from "axios";
-import { useState } from "react"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
-function Login({setIsLogin}) {
-const[inputEmail, setInputEmail]=useState("")
-const[inputPassword, setInputPassword]=useState("")
+function Login({ setIsLogin }) {
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await axios({
+      method: "post",
+      url: "http://localhost:8000/users/tokens",
+      data: {
+        email: inputEmail,
+        password: inputPassword,
+      },
+    });
+    dispatch(login({ token: response.data.token }));
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  const response = await axios({
-    method: "post",
-    url: "http://localhost:8000/token",
-    data: {
-      email: inputEmail,
-      password: inputPassword,
-    },
-  });
-  console.log(response);
-};
+    navigate("/home");
+  };
   return (
     <div>
       <body>
@@ -52,7 +58,7 @@ const handleSubmit = async (event) => {
                   <div className="" id="contenedor-login">
                     <h3 className="fw-bold">Login</h3>
                     <p>Ready to start using Twitter?</p>
-                    <form onSubmit ={handleSubmit} action="">
+                    <form onSubmit={handleSubmit} action="">
                       <div className="mb-2">
                         <label htmlFor="" className="form-label"></label>
                         <input
@@ -62,7 +68,9 @@ const handleSubmit = async (event) => {
                           name="email"
                           placeholder="Email"
                           value={inputEmail}
-                          onChange={(event)=>setInputEmail(event.target.value)}
+                          onChange={(event) =>
+                            setInputEmail(event.target.value)
+                          }
                         />
                       </div>
 
@@ -75,7 +83,9 @@ const handleSubmit = async (event) => {
                           name="password"
                           placeholder="Password"
                           value={inputPassword}
-                          onChange={(event)=>setInputPassword(event.target.value)}
+                          onChange={(event) =>
+                            setInputPassword(event.target.value)
+                          }
                         />
                       </div>
 

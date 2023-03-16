@@ -1,8 +1,7 @@
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Landing from "./pages/Landing";
-import Tweets from "./pages/TweetsPage";
-
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/tweets" element={<Tweets />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </div>

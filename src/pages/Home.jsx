@@ -4,7 +4,7 @@ import RightBar from "../components/RightBar";
 // import Tweet from "../components/Tweet";
 import Tweets from "../components/Tweets";
 
-function TweetsPage() {
+function Home() {
   return (
     <div>
       <body>
@@ -25,10 +25,10 @@ function TweetsPage() {
                   </div>
                   <div className="ms-2">
                     <div className="name">
-                      <a
+                      {/* <a
                         href="/user/<%= tweet.userId._id %>"
                         className="text-decoration-none text-dark"
-                      ></a>
+                      ></a> */}
                     </div>
 
                     <div className="username"></div>
@@ -62,4 +62,4 @@ function TweetsPage() {
   );
 }
 
-export default TweetsPage;
+export default Home;

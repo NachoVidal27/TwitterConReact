@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 function Tweets() {
-  const token= useSelector((state)=>state.user.accestoken)
+  const token = useSelector((state) => state.user.accestoken);
 
   const [tweets, setTweets] = useState([]);
   useEffect(() => {
