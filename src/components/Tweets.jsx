@@ -2,11 +2,13 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-function Tweets() {
-  const token = useSelector((state) => state.user.accestoken);
 
-  const [tweets, setTweets] = useState([]);
+function Tweets() {
+  const token = useState((state) => state.user.token);
+  console.log(token);
+  const [tweets, setTweets] = useState();
   useEffect(() => {
+    console.log("milanesa");
     const getTweets = async () => {
       const response = await axios({
         headers: {
@@ -23,9 +25,8 @@ function Tweets() {
     <div>
       <div>
         {tweets.map((tweet) => {
-          console.log(tweets);
           return (
-            <div>
+            <div key={tweet.id}>
               <h5>{tweet.content}</h5>
             </div>
           );

@@ -33,9 +33,9 @@ function UserData() {
           </div>
         </div>
       </div>
-      <h2></h2>
-      <h5></h5>
-      <p></p>
+      <h2>FIRSTNAME CAMBIAR </h2>
+      <h5>USERNAME CAMBIAR </h5>
+      <p>USER BIO CAMBIAR </p>
       <div class="d-flex justify-content-end column-gap-3">
         <h5>
           <span class="fw-bold opacity-100"></span>

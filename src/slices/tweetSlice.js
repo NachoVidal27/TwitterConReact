@@ -4,18 +4,23 @@ const tweetSlice = createSlice({
   name: "tweet",
   initialState: [],
   reducers: {
-    createTwt(state, action) {
-      return "crear un tweet";
+    create(state, action) {
+      state = action.payload;
     },
-    deleteTwt(state, action) {
-      return "borrar un tweet";
+    destroy(state, action) {
+      return state.filter((tweet) => tweet.id !== action.payload);
     },
-    likeATwt(state, action) {
-      return "likear un tweet";
+    like(state, action) {
+      const tweetLiked = state.find((tweet) => tweet.id === action.payload);
+      if (tweetLiked.isLiked === false) {
+        tweetLiked.isLiked = true;
+      } else {
+        tweetLiked.isLiked = false;
+      }
     },
   },
 });
 
-export const { createTwt, deleteTwt, likeATwt } = tweetSlice.actions;
+export const { create, destroy, like } = tweetSlice.actions;
 
 export default tweetSlice.reducer;
