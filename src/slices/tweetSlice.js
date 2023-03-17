@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const tweetSlice = createSlice({
   name: "tweet",
-  initialState: [],
+  initialState: null,
   reducers: {
     create(state, action) {
       state = action.payload;
@@ -12,10 +12,10 @@ const tweetSlice = createSlice({
     },
     like(state, action) {
       const tweetLiked = state.find((tweet) => tweet.id === action.payload);
-      if (tweetLiked.isLiked === false) {
-        tweetLiked.isLiked = true;
+      if (tweetLiked.liked === false) {
+        tweetLiked.liked = true;
       } else {
-        tweetLiked.isLiked = false;
+        tweetLiked.liked = false;
       }
     },
   },

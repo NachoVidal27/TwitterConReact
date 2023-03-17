@@ -1,11 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineHeart } from "react-icons/ai";
+import { like } from "../slices/tweetSlice";
 
 function Tweets() {
+  const dispatch = useDispatch();
   const [tweets, setTweets] = useState([]);
   const token = useSelector((state) => state.user.token);
+
   useEffect(() => {
     const getTweets = async () => {
       const response = await axios({
@@ -26,35 +30,34 @@ function Tweets() {
           {tweets.map((tweet) => {
             return (
               <div key={tweet.id}>
-                <div class="d-flex border border-light p-2">
+                <div className="d-flex border border-light p-2">
                   <div>
                     <img
                       src={tweet.user.profileImg}
-                      class="profile-img"
+                      className="profile-img"
                       alt="user profile pic"
                     />
                   </div>
-                  <div class="ms-2">
-                    <div class="name">
-                      <a
-                        href="/user/<%= tweet.userId._id %>"
-                        class="text-decoration-none text-dark"
-                      >
-                        {tweet.user.firstname} {tweet.user.lastname}
-                      </a>
+                  <div className="ms-2">
+                    <div className="name">
+                      {tweet.user.firstname} {tweet.user.lastname}
                     </div>
 
-                    <div class="username">@{tweet.user.username}</div>
+                    <div className="username">@{tweet.user.username}</div>
 
                     <div>
                       <p id="content">{tweet.content}</p>
                     </div>
-                    <form action="/tweet/{tweet._id }/like" method="post">
-                      <button type="submit" class="h_container">
-                        <i id="heart" class="far fa-heart heart"></i>
-                      </button>
-                      <span class="heart">{tweet.likes.length}</span>
-                    </form>
+                    <div key={tweet.id}>
+                      <h5
+                        onClick={() => dispatch(like(tweet.id))}
+                        className={tweet.liked ? "heartLiked" : "heart"}
+                      >
+                        like
+                      </h5>
+                    </div>
+
+                    <span className="heart">{tweet.likes.length}</span>
                   </div>
                 </div>
               </div>

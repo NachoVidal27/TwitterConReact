@@ -1,5 +1,10 @@
 /* Colocar aquí CSS "propio". */
 /* Navbar */
+/* body {
+  background-color: rgb(19, 19, 19);
+  color: white;
+} */
+
 #navbar {
   height: 65%;
 }
@@ -126,6 +131,14 @@ h5 {
   font-size: 15px;
   color: red;
 }
+
+.heartLiked {
+  font-size: 15px;
+  color: white;
+
+  background-color: red;
+}
+
 #heart:hover {
   background-color: red;
 }
