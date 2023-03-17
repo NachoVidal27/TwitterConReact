@@ -53,9 +53,8 @@ function Tweets() {
               >
                 <BsFillHeartFill />
               </h5>
+              <span className="heart ms-2">{tweet.likes.length}</span>
             </div>
-
-            <span className="heart">{tweet.likes.length}</span>
           </div>
         </div>
       </div>
