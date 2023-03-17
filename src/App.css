@@ -175,9 +175,10 @@ h5 {
 
 #userImg {
   border-radius: 100%;
-  width: 3rem;
+  width: 3.2rem;
   height: 3rem;
   margin-left: 0.45rem;
+  background-color: black;
 }
 #navbar {
   height: 100vh;

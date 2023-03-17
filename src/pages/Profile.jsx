@@ -8,8 +8,8 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <UserData />
-      <UserTweets />
+      {/* <UserData />
+      <UserTweets />*/}
       <RightBar />
     </div>
   );

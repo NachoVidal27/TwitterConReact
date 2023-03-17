@@ -9,11 +9,7 @@ function Tweet() {
             <h2 class="mt-2">Home</h2>
             <div class="border-start border-end border-bottom border-light">
               <div class="mb-3 d-flex fs-4">
-                <img
-                  src="<%= user.profileImg%>"
-                  id="userImg"
-                  alt="user-image"
-                />
+                <div id="userImg" />
                 <textarea
                   placeholder="What's Happening?"
                   class="form-control"
