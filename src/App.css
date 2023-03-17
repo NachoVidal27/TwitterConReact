@@ -84,6 +84,15 @@ h5 {
   display: block;
 }
 
+#userPicture {
+  height: 2rem;
+  width: 2rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1.8rem;
+  display: block;
+  margin-right: 0.15rem;
+}
+
 /* //Tweet */
 .name {
   display: inline-block;
