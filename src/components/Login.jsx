@@ -19,7 +19,7 @@ function Login({ setIsLogin }) {
         password: inputPassword,
       },
     });
-    dispatch(login({ token: response.data.token }));
+    dispatch(login(response.data));
 
     navigate("/home");
   };

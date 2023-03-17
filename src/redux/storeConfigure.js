@@ -15,7 +15,7 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  tweet: tweetReducer,
+  tweets: tweetReducer,
   user: userReducer,
 });
 

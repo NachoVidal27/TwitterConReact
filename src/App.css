@@ -129,14 +129,12 @@ h5 {
 }
 .heart {
   font-size: 15px;
-  color: red;
+  color: black;
 }
 
 .heartLiked {
   font-size: 15px;
-  color: white;
-
-  background-color: red;
+  color: red;
 }
 
 #heart:hover {

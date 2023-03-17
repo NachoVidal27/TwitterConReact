@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import RightBar from "../components/RightBar";
 // import Tweet from "../components/Tweet";
 import Tweets from "../components/Tweets";
-import Tweet from "../components/Tweet";
+import TweetForm from "../components/TweetForm";
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
             <div className="col-1"></div>
             <Navbar />
             <div className="col-7 col-md-8 col-lg-6">
-              <Tweet />
+              <TweetForm />
               <Tweets />
             </div>
             <div className="col-4 d-lg-block  d-none">
