@@ -9,7 +9,7 @@ function Navbar() {
     >
       <div>
         <img src="/img/logopajarito.svg" className="logosHome" alt="" />
-        <Link to="/tweets">
+        <Link to="/home">
           <img src="/img/twtHome.svg" className="logosHome" alt="" />
         </Link>
         <Link to="/profile/">
@@ -20,7 +20,7 @@ function Navbar() {
             alt=""
           />
         </Link>
-        <Link to="/tweets">
+        <Link to="/home">
           <img src="/img/writeTwt.svg" className="logosHome" alt="" />
         </Link>
       </div>

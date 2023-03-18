@@ -11,8 +11,10 @@ function Home() {
       <body>
         <div className="container">
           <div className="row">
-            <div className="col-1"></div>
-            <Navbar />
+            <div className="col-1">
+              <Navbar />
+            </div>
+
             <div className="col-7 col-md-8 col-lg-6">
               <TweetForm />
               <Tweets />
