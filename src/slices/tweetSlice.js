@@ -15,7 +15,7 @@ const tweetSlice = createSlice({
     },
     like(state, action) {
       const tweetLiked = state.find(
-        (tweet) => tweet.id === action.payload.tweetId
+        (tweet) => tweet._id === action.payload.tweetId
       );
       if (!tweetLiked.likes.includes(action.payload.user.id)) {
         tweetLiked.likes.push(action.payload.user.id);
