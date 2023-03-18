@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 function Login({ setIsLogin }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -10,18 +11,22 @@ function Login({ setIsLogin }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const response = await axios({
-      method: "post",
-      url: "http://localhost:8000/users/tokens",
-      data: {
-        email: inputEmail,
-        password: inputPassword,
-      },
-    });
-    dispatch(login(response.data));
-
-    navigate("/home");
+    try {
+      event.preventDefault();
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:8000/users/tokens",
+        data: {
+          email: inputEmail,
+          password: inputPassword,
+        },
+      });
+      dispatch(login(response.data));
+      toast.success('Bienvenido!');
+      navigate("/home");
+    } catch (error) {
+      toast.error('Credenciales inválidas');
+    }
   };
   return (
     <div>
