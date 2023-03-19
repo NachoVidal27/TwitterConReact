@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import RightBar from "../components/RightBar";
 // import Tweet from "../components/Tweet";
 import Tweets from "../components/Tweets";
 import TweetForm from "../components/TweetForm";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Home() {
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  })
+
   return (
     <div>
       <body>

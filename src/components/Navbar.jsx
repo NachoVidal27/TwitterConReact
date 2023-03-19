@@ -1,7 +1,20 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
+import { logout } from "../slices/userSlice";
 
 function Navbar() {
+  
+  const dispatch = useDispatch();
+  
+
+const setLogout = () => {
+  dispatch(logout());
+  toast.success('Hasta pronto!');
+}
+
   return (
     <div
       id="navbar"
@@ -25,7 +38,7 @@ function Navbar() {
         </Link>
       </div>
 
-      <Link to="/auth/logout">
+      <Link to="#" onClick={() => setLogout()}>
         <img src="/img/logout.svg" className="logosHome" id="logout" alt="" />
       </Link>
     </div>

@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BsFillHeartFill } from "react-icons/bs";
 import { like, setTweets } from "../slices/tweetSlice";
-import toast from 'react-hot-toast';
-
+import toast from "react-hot-toast";
 
 function Tweets() {
   const dispatch = useDispatch();
   const tweets = useSelector((state) => state.tweets);
   const user = useSelector((state) => state.user);
+
   useEffect(() => {
     const getTweets = async () => {
       const response = await axios({
@@ -36,26 +36,21 @@ function Tweets() {
         url: `http://localhost:8000/tweets/${tweetId}`,
       });
       // PEGARLE_A_LA_API end
-      dispatch(like({ tweetId, user}))
-
+      dispatch(like({ tweetId, user }));
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error("Error likeando tweets");
     }
-    return true
-  }
+    return true;
+  };
 
   return (
-    tweets.length &&
+    user &&
     tweets.map((tweet) => (
       <div key={tweet._id}>
         <div className="d-flex border border-light p-2">
           <div>
-            <img
-              src={tweet.user.profileImg}
-              className="profile-img"
-              alt="user profile pic"
-            />
+            <img src={tweet.user.profileImg} className="profile-img" alt="user profile pic" />
           </div>
           <div className="ms-2">
             <div className="name">
@@ -68,12 +63,7 @@ function Tweets() {
               <p id="content">{tweet.content}</p>
             </div>
             <div key={tweet._id}>
-              <h5
-                onClick={event => onLikeTweet(event, user, tweet._id)}
-                className={
-                  tweet.likes.includes(user.id) ? "heartLiked" : "heart"
-                }
-              >
+              <h5 onClick={(event) => onLikeTweet(event, user, tweet._id)} className={tweet.likes.includes(user.id) ? "heartLiked" : "heart"}>
                 <BsFillHeartFill />
               </h5>
               <span className="heart ms-2">{tweet.likes.length}</span>
