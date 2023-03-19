@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import UserData from "../components/UserData";
-import UserTweets from "../components/UserTweets";
 import RightBar from "../components/RightBar";
 
 function Profile() {
@@ -14,7 +13,7 @@ function Profile() {
           </div>
           <div className="col-7 col-md-8 col-lg-6">
             <UserData />
-            {/* <UserTweets /> */}
+           
           </div>
           <div className="col-4 d-lg-block  d-none">
             <RightBar />
