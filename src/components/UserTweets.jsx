@@ -33,11 +33,11 @@ function UserTweets() {
           </div>
           <div class="ms-2">
             <div class="name">
-             {/*  {user.firstname} {user.lastname} */}
+             <h4> {user.firstname} {user.lastname}</h4>
             </div>
 
             <div class="username">
-           {/*    @{user.username} {tweet.createdAt} */}
+              <h5> @{user.username} {tweet.createdAt}</h5>
             </div>
 
             {/* <p id="content"> {tweet.content}</p> */}
