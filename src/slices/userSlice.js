@@ -21,9 +21,12 @@ const userSlice = createSlice({
     follow(state, action) {
       return "seguir usuario";
     },
+    add(state, action) {
+      state.push(action.payload);
+    },
   },
 });
 
-export const { login, logout, follow, setUserTweets } = userSlice.actions;
+export const { login, logout, follow, setUserTweets, add } = userSlice.actions;
 
 export default userSlice.reducer;
