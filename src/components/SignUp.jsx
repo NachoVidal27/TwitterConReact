@@ -2,21 +2,23 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { add } from "../slices/tweetSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUp({ setIsLogin }) {
-  const [inputNewUser, setinputNewUser] = useState(null);
+  const navigate = useNavigate();
+  const [inputNewUser, setinputNewUser] = useState();
+  const[inputFirstName,setInputFirstName]=useState();
+  const[inputLastName,setInputLastName]=useState();
+  const[inputEmail,setInputEmail]=useState();
+  const[inputUsername,setInputUsername]=useState();
+  const[inputImage,setInputImage]=useState();
+  const[inputPassword,setInputPassword]=useState();
   const dispatch = useDispatch();
   const handleRegister = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("firstname", firstname);
-    formData.append("lastname", lastname);
-    formData.append("email", email);
-    formData.append("username", username);
-    formData.append("image", image);
-    formData.append("password", password);
+    
     const register = async () => {
       const response = await axios({
         method: "post",
@@ -78,7 +80,7 @@ function SignUp({ setIsLogin }) {
                           placeholder="First name"
                           value={inputFirstName}
                           onChange={(event) => {
-                            setinputNewFirstName(event.target.value);
+                            setInputFirstName(event.target.value);
                           }}
                         />
                       </div>
@@ -92,7 +94,7 @@ function SignUp({ setIsLogin }) {
                           placeholder="Last name"
                           value={inputLastName}
                           onChange={(event) => {
-                            setinputNewLastName(event.target.value);
+                            setInputLastName(event.target.value);
                           }}
                         />
                       </div>
@@ -109,7 +111,7 @@ function SignUp({ setIsLogin }) {
                           placeholder="Email"
                           value={inputEmail}
                           onChange={(event) => {
-                            setinputNewEmail(event.target.value);
+                            setInputEmail(event.target.value);
                           }}
                         />
                       </div>
@@ -121,9 +123,9 @@ function SignUp({ setIsLogin }) {
                           id="username"
                           name="username"
                           placeholder="Username"
-                          value={inputUserName}
+                          value={inputUsername}
                           onChange={(event) => {
-                            setinputNewUserName(event.target.value);
+                            setInputUsername(event.target.value);
                           }}
                         />
                       </div>
@@ -137,7 +139,7 @@ function SignUp({ setIsLogin }) {
                           placeholder="image"
                           value={inputImage}
                           onChange={(event) => {
-                            setinputNewImage(event.target.value);
+                            setInputImage(event.target.value);
                           }}
                         />
                       </div>
@@ -151,7 +153,7 @@ function SignUp({ setIsLogin }) {
                           placeholder="Password"
                           value={inputPassword}
                           onChange={(event) => {
-                            setinputNewPassword(event.target.value);
+                            setInputPassword(event.target.value);
                           }}
                         />
                       </div>
