@@ -58,6 +58,13 @@ h5 {
   width: 70vw;
 }
 
+#userData {
+  padding: 8px;
+}
+
+#follows {
+  margin-top: -50px;
+}
 #parte-azul {
   background-color: #1d9bf0;
 }
@@ -154,11 +161,12 @@ h5 {
 }
 
 #profile-items-alignment {
-  height: 120px;
+  height: 80px;
 }
 
 #follow-button-alignmet {
-  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #follow-button {
