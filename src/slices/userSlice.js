@@ -4,6 +4,12 @@ const userSlice = createSlice({
   name: "user",
   initialState: null,
   reducers: {
+    setUserTweets(state, action) {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
     login(state, action) {
       // state = action.payload;
       console.log(state);
@@ -18,6 +24,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { login, logout, follow } = userSlice.actions;
+export const { login, logout, follow, setUserTweets } = userSlice.actions;
 
 export default userSlice.reducer;
