@@ -1,9 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUserTweets } from "../slices/userSlice";
+import { like } from "../slices/tweetSlice";
+import { BsFillHeartFill } from "react-icons/bs";
+import toast from "react-hot-toast";
 
 function UserData() {
   const dispatch = useDispatch();
@@ -30,6 +33,25 @@ function UserData() {
       getData();
     }
   }, [token]);
+
+  const onLikeTweet = async (event, user, tweetId) => {
+    try {
+      // await PEGARLE_A_LA_API
+      const response = await axios({
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        method: "post",
+        url: `http://localhost:8000/tweets/${tweetId}`,
+      });
+      // PEGARLE_A_LA_API end
+      dispatch(like({ tweetId, user }));
+    } catch (error) {
+      console.log(error);
+      toast.error("Error likeando tweets");
+    }
+    return true;
+  };
 
   return (
     <div>
@@ -68,7 +90,7 @@ function UserData() {
                   to="/users/follow"
                   className="text-decoration-none text-dark"
                 >
-                  Following
+                  Following {user.following.length}
                 </Link>
               </h5>
               <br />
@@ -78,12 +100,14 @@ function UserData() {
                   to="/users/follow"
                   className="text-decoration-none text-dark"
                 >
-                  Followers
+                  Followers {user.followers.length}
                 </Link>
               </h5>
             </div>
             <div>
-              <h5 className="ms-2 mt-4" id="tweets-label"></h5>
+              <h5 className=" mt-4" id="tweets-label">
+                Tweets
+              </h5>
             </div>
           </div>
           <div>
@@ -112,21 +136,23 @@ function UserData() {
 
                         <p id="content"> {tweet.content}</p>
                         <div class="d-flex justify-content-between">
-                          <form
-                            action="/user/<%= user._id %>/<%= tweet._id %>/like"
-                            method="post"
-                          >
-                            <button type="submit" class="h_container">
-                              <i id="heart" class="far fa-heart heart"></i>
-                            </button>
-                            <span class="heart">{tweet.likes.length} </span>
-                          </form>
-                          {/* <% if (logedUser.username === user.username) {%> */}
-                          {/* <form action="/tweet/<%= tweet._id %>?_method=DELETE" method="post"> */}
-                          <button type="submit" class="h_container">
-                            <i class="fa fa-trash-o heart"></i>
-                          </button>
-                          {/* </form> */}
+                          <div key={tweet._id}>
+                            <h5
+                              onClick={(event) =>
+                                onLikeTweet(event, user, tweet._id)
+                              }
+                              className={
+                                tweet.likes.includes(user.id)
+                                  ? "heartLiked"
+                                  : "heart"
+                              }
+                            >
+                              <BsFillHeartFill />
+                            </h5>
+                            <span className="heart ms-2">
+                              {tweet.likes.length}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
